@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contrôle d’une porte d’aération d’une serre</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="javascripts/script.js"></script>
+    <style>
+      /* Add your CSS styles here */
+      label,
+      button {
+        margin: 25px;
+      }
+      label {
+        font-weight: bold;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .battery-image {
+        margin-left: 50px;
+      }
+    </style>
+    <script>
+      // Add your JavaScript code here
+    </script>
+  </head>
+  <body>
+    <h1>Contrôle d’une porte d’aération d’une serre</h1>
+    <div class="container">
+      <div>
+        <label for="etiquetteTemperature">Température ambiante:</label>
+        <span id="etiquetteTemp"></span>
+        <span>°C</span>
+        <br />
+        <label for="etiquetteControle">Contrôle:</label>
+        <button id="boutonAutomatique" onclick="changerMethode('Auto')">
+          Automatique
+        </button>
+        <button id="boutonManuelle" onclick="changerMethode('Manuelle')">
+          Manuelle
+        </button>
+        <br />
+        <label for="entreePourcentage">Pourcentage:</label>
+        <input type="number" id="entreePourcentage" min="0" max="100" />
+        <span>%</span>
+        <br />
+        <label>Action:</label>
+        <button id="boutonOuvrir" onclick="sendTelemetry('Ouvrir')">
+          Ouvrir La Porte
+        </button>
+        <button id="boutonFermer" onclick="sendTelemetry('Fermer')">
+          Fermer La Porte
+        </button>
+        <br />
+        <button id="boutonGraphique">
+          Graphique de températures et de pourcentages par période
+        </button>
+        <br />
+        <label for="etiquettepourAlerte">Alerte :</label>
+        <span style="color: red;" id="etiquettepourAlerte"
+          >La porte est ouverte plus que nécessaire, elle doit être ouverte à :
+          33%</span
+        >
+      </div>
+      <img
+        id="etiquetteImage"
+        src="images/battery.png"
+        alt="Battery Image"
+        class="battery-image"
+      />
+      <label for="etiquettepourcentageOuverture"
+        >Pourcentage d’ouverture de la porte:</label
+      >
+      <span id="etiquettepourcentageOuverture">50</span>
+      <span>%</span>
+
+    </div>
+  </body>
+</html>
